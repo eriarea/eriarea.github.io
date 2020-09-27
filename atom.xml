@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://eriarea.github.io/</id>
     <title>阿水脑洞屋</title>
-    <updated>2020-09-27T13:25:16.476Z</updated>
+    <updated>2020-09-27T13:42:11.524Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://eriarea.github.io/"/>
     <link rel="self" href="https://eriarea.github.io/atom.xml"/>
@@ -10,4 +10,37 @@
     <logo>https://eriarea.github.io/images/avatar.png</logo>
     <icon>https://eriarea.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 阿水脑洞屋</rights>
+    <entry>
+        <title type="html"><![CDATA[关于『阿水脑洞屋』]]></title>
+        <id>https://eriarea.github.io/post/about/</id>
+        <link href="https://eriarea.github.io/post/about/">
+        </link>
+        <updated>2019-01-25T11:09:48.000Z</updated>
+        <content type="html"><![CDATA[<blockquote>
+<p>欢迎来到我的小站呀，很高兴遇见你！😎</p>
+</blockquote>
+<h2 id="关于本站">🏠 <strong>关于本站</strong></h2>
+<h6 id="站主个人存放关于自家各种cp的各种脑洞的保管所">站主个人存放关于自家各种cp的各种脑洞的保管所</h6>
+<h6 id="但是通常只是脑洞并写不出来">但是通常只是脑洞，并写不出来🤣</h6>
+<h6 id="同时也可能是站主的试验田如果站主真的会想起来学习技术的话">同时也可能是站主的试验田——如果站主真的会想起来学习技术的话</h6>
+<h6 id="或许还可能是随记存放地真的会写吗">或许还可能是随记存放地<s>真的会写吗</s></h6>
+<h2 id="博主是谁">👨‍💻 <strong>博主是谁</strong></h2>
+<h6 id="一个叫做白开水娘的宅女">一个叫做白开水娘的宅女</h6>
+<h6 id="涉猎范围从爱豆文字类游戏动画vtuber">涉猎范围从爱豆，文字类游戏，动画，Vtuber</h6>
+<h6 id="私以为还算广泛">私以为还算广泛</h6>
+<h6 id="有一个成为程序媛的梦想">有一个成为程序媛的梦想</h6>
+<h6 id="如果某个叫做懒的敌人不会半路阻击我的话">如果某个叫做懒的敌人不会半路阻击我的话</h6>
+<h2 id="兴趣爱好">⛹ <strong>兴趣爱好</strong></h2>
+<h6 id="基本上只要是懒在那里玩的爱好多少都喜欢">基本上只要是懒在那里玩的爱好多少都喜欢</h6>
+<h6 id="看直播-看动画-看小说-玩游戏">看直播 看动画 看小说 玩游戏</h6>
+<h6 id="游戏以文字类游戏和rpg游戏为多但是常年菜鸡">游戏以文字类游戏和RPG游戏为多，但是常年菜鸡</h6>
+<h6 id="小说喜欢推理类犯罪类如果是以上两类再加上bl就是理想的小说了">小说喜欢推理类，犯罪类，如果是以上两类再加上BL，就是理想的小说了</h6>
+<h2 id="目前好感的cp">📖<strong>目前好感的cp</strong></h2>
+<ul>
+<li>南以颜喻——来自内娱</li>
+<li>kzkn/黑黑/knkz——来自Vtuber</li>
+<li>クラシロ——来自动画『记录的地平线』</li>
+</ul>
+]]></content>
+    </entry>
 </feed>
