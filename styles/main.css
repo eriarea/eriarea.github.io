@@ -2062,6 +2062,16 @@ body {
         width: 960px;
         margin: 0 auto;
       }
+    @font-face {
+      font-family: 'cjkFonts_allseto_v1.11';
+      src: url('/media/fonts/cjkFonts_allseto_v1.11.ttf');
+    }
+    * {
+        font-family: 'cjkFonts_allseto_v1.11';
+    }
+    .katex-block *{
+      font-family: 'KaTeX_Main';
+    }
     body {
       color: #555;
     }
