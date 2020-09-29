@@ -2063,11 +2063,11 @@ body {
         margin: 0 auto;
       }
     @font-face {
-      font-family: 'cjkFonts_allseto_v1.11';
-      src: url('/media/fonts/cjkFonts_allseto_v1.11.ttf');
+      font-family: 'cjkFonts_allseto_v1.11.ttf';
+      src: url('/media/fonts/cjkFonts_allseto_v1.11.ttf.ttf');
     }
     * {
-        font-family: 'cjkFonts_allseto_v1.11';
+        font-family: 'cjkFonts_allseto_v1.11.ttf';
     }
     .katex-block *{
       font-family: 'KaTeX_Main';
