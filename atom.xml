@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://eriarea.github.io/</id>
     <title>阿水记事簿</title>
-    <updated>2020-11-21T14:06:16.923Z</updated>
+    <updated>2020-11-21T14:37:18.645Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://eriarea.github.io/"/>
     <link rel="self" href="https://eriarea.github.io/atom.xml"/>
@@ -17,7 +17,11 @@
         </link>
         <updated>2020-11-21T13:36:35.000Z</updated>
         <content type="html"><![CDATA[<ol>
-<li>「ログ・ホライズン データベース」（Log Horizon Database）词条翻译</li>
+<li>「ログ・ホライズン データベース」（Log Horizon Database）词条翻译
+<ul>
+<li><a href="https://eriarea.github.io/post/kelasitideroleplay/">克拉斯提的Role Play习惯(クラスティのロールプレイ癖)</a></li>
+</ul>
+</li>
 </ol>
 ]]></content>
     </entry>
@@ -27,8 +31,7 @@
         <link href="https://eriarea.github.io/post/kelasitideroleplay/">
         </link>
         <updated>2020-11-21T13:10:02.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="散装日文塑料翻译且语序词句选择采取我个人的理解来翻译所以存在不准确的情况">散装日文塑料翻译且语序词句选择采取我个人的理解来翻译，所以存在不准确的情况</h2>
-<p>克拉斯提在很多方面都拥有着才能， 但实际上，这似乎是他的一种无意义的发达的「模仿」能力。虽然说是模仿，但也并不是一定要有明确的模仿对象。可以是他在书中读到的，也可以是电影里看到的角色或者行为模式，他只要按照那个感觉去再现的话，无论是学业上的，还是文化上的或者是工作上的事务，大致上就能顺利的达成。克拉斯提拥有的似乎就是这样的天赋。<br>
+        <content type="html"><![CDATA[<p>克拉斯提在很多方面都拥有着才能， 但实际上，这似乎是他的一种无意义的发达的「模仿」能力。虽然说是模仿，但也并不是一定要有明确的模仿对象。可以是他在书中读到的，也可以是电影里看到的角色或者行为模式，他只要按照那个感觉去再现的话，无论是学业上的，还是文化上的或者是工作上的事务，大致上就能顺利的达成。克拉斯提拥有的似乎就是这样的天赋。<br>
 当然，他平时无规则得大量收集的知识和过往的经验是使他能这么做的基础。但是即使是这样，他的这个才能也是不正常的。<br>
 “说起来祖父工作的方法好像是这样的，说起来参考书上推荐的思考方法好像是那样的，学着做一下吧。”因为这种程度就可以做出成果，所以克拉斯提自己对于这样的成功持很无所谓的态度。<br>
 从学生时期就和克拉斯提成为朋友的高山三佐早早地注意到了这件事，她曾经多次提醒克拉斯提应该对于这样的处事方式多加注意。不过，因为克拉斯提他自己并不觉得这样的才能和行为有问题，所以高山三佐的忠告的效果是有限的。<br>
@@ -40,6 +43,7 @@
 <hr>
 <ol>
 <li>原词条地址 <a href="https://lhrpg.com/lhz/i?id=2981">ログ・ホライズン</a></li>
+<li>散装日文塑料翻译且语序词句选择采取我个人的理解来翻译，所以存在不准确的情况</li>
 </ol>
 ]]></content>
     </entry>
@@ -48,7 +52,7 @@
         <id>https://eriarea.github.io/post/about/</id>
         <link href="https://eriarea.github.io/post/about/">
         </link>
-        <updated>2019-01-25T11:09:48.000Z</updated>
+        <updated>2020-11-21T11:09:48.000Z</updated>
         <content type="html"><![CDATA[<blockquote>
 <p>欢迎来到我的小站呀，很高兴遇见你！😎</p>
 </blockquote>
@@ -68,12 +72,14 @@
 看直播 看动画 看小说 玩游戏<br>
 涉猎游戏以文字类游戏和RPG游戏为多，但是常年菜鸡<br>
 小说喜欢推理类，犯罪类，如果是以上两类再加上BL，就是理想的小说了</p>
-<h2 id="目前好感的cp">📖<strong>目前好感的cp</strong></h2>
+<h2 id="好感cp">📖 <strong>好感cp</strong></h2>
 <ul>
 <li>阿诺斯x雷伊——来自『魔王学院の不適合者』</li>
 <li>叶x葛叶/ 葛叶x叶——来自Vtuber</li>
 <li>克拉斯提x城惠——来自动画『记录的地平线』</li>
 </ul>
+<h2 id="文档目录">🌟 <strong>文档目录</strong></h2>
+<p><a href="https://eriarea.github.io/post/mu-lu/">目录</a></p>
 ]]></content>
     </entry>
 </feed>
