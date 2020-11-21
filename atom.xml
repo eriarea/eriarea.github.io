@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://eriarea.github.io/</id>
     <title>阿水记事簿</title>
-    <updated>2020-11-21T08:41:18.158Z</updated>
+    <updated>2020-11-21T13:38:22.084Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://eriarea.github.io/"/>
     <link rel="self" href="https://eriarea.github.io/atom.xml"/>
@@ -11,7 +11,40 @@
     <icon>https://eriarea.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 阿水记事簿</rights>
     <entry>
-        <title type="html"><![CDATA[关于『阿水脑洞屋』]]></title>
+        <title type="html"><![CDATA[目录]]></title>
+        <id>https://eriarea.github.io/post/mu-lu/</id>
+        <link href="https://eriarea.github.io/post/mu-lu/">
+        </link>
+        <updated>2020-11-21T13:36:35.000Z</updated>
+        <content type="html"><![CDATA[<ol>
+<li>「ログ・ホライズン データベース」（Log Horizon Database）词条翻译</li>
+</ol>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[【LHZDB】【翻译】克拉斯提的Role Play习惯]]></title>
+        <id>https://eriarea.github.io/post/kelasitideroleplay/</id>
+        <link href="https://eriarea.github.io/post/kelasitideroleplay/">
+        </link>
+        <updated>2020-11-21T13:10:02.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="散装日文塑料翻译且语序词句选择采取我个人的理解来翻译所以存在不准确的情况">散装日文塑料翻译且语序词句选择采取我个人的理解来翻译，所以存在不准确的情况</h2>
+<p>克拉斯提在很多方面都拥有着才能， 但实际上，这似乎是他的一种无意义的发达的「模仿」能力。虽然说是模仿，但也并不是一定要有明确的模仿对象。可以是他在书中读到的，也可以是电影里看到的角色或者行为模式，他只要按照那个感觉去再现的话，无论是学业上的，还是文化上的或者是工作上的事务，大致上就能顺利的达成。克拉斯提拥有的似乎就是这样的天赋。<br>
+当然，他平时无规则得大量收集的知识和过往的经验是使他能这么做的基础。但是即使是这样，他的这个才能也是不正常的。<br>
+“说起来祖父工作的方法好像是这样的，说起来参考书上推荐的思考方法好像是那样的，学着做一下吧。”因为这种程度就可以做出成果，所以克拉斯提自己对于这样的成功持很无所谓的态度。<br>
+从学生时期就和克拉斯提成为朋友的高山三佐早早地注意到了这件事，她曾经多次提醒克拉斯提应该对于这样的处事方式多加注意。不过，因为克拉斯提他自己并不觉得这样的才能和行为有问题，所以高山三佐的忠告的效果是有限的。<br>
+在克拉斯提的人格形成期，他的血亲在一直都在以他们自己的利益折腾克拉斯提。因此克拉斯提很少有交往时间很长的朋友。而且他有着对朋友，熟人和认识的人的区分的很清楚的性格，所以他对于「其余的大多数人」通常会采用比较随意而敷衍的态度。<br>
+世间一般认为的「敷衍了事的态度」是指将所需的努力降到最低的疏远的态度，但是模仿能力异常发达的克拉斯提却是以「采取在当时的场合看来差不多合适的态度」的方式来实现的（对于克拉斯提来说这样做比拒绝或者调整对方的要求要来的更省事）。<br>
+因此，克拉斯提越是采取这样敷衍的态度，周围的人却越是将他看作「理想的上司」「理想的指导者」「理想的前辈」「理想的异性」「让人憧憬的异性」。而且因为克拉斯提本人，或是出于愉快犯的心理而对于周围人的反应坐视不理，或是考虑了得失后决定对于这些评价不去修正的情况很多，这就导致了他的个人形象被高估。<br>
+对于克拉斯提来说，「给异性赠送礼物」就是他相对来说比较敷衍的做法之一，所以他会在并无此意的情况下这么做（当然他很清楚这么做会有可能会让对方产生误会）。不过另一方面，由于过往曾经因为「送花」而有过惹祸上身的经验，所以他还是会比较慎重的。然而，只是在这方面有所约束并不会减少他卷入麻烦的概率。<br>
+怠惰且怕麻烦的克拉斯提一直以来逃避的事是「让别人来理解自己这个人」。对于他来说，与其为这件事花费心力，还不如直接实现对方的目的来的要简单的多。但是经过11卷后，他似乎也开始有了变化。</p>
+<hr>
+<ol>
+<li>原词条地址 <a href="https://lhrpg.com/lhz/i?id=2981">ログ・ホライズン</a></li>
+</ol>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[关于『阿水记事簿』]]></title>
         <id>https://eriarea.github.io/post/about/</id>
         <link href="https://eriarea.github.io/post/about/">
         </link>
