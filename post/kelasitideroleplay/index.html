@@ -9,7 +9,7 @@
 <meta name="description" content="温故而知新">
 <meta name="theme-color" content="#000">
 <title>【LHZDB】【翻译】克拉斯提的Role Play习惯 | 阿水记事簿</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1606572083368">
+<link rel="shortcut icon" href="/favicon.ico?v=1606644724304">
 <link rel="stylesheet" href="/media/css/pisces.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -178,6 +178,208 @@
 
 <div class="sidebar">
   
+    <div class="sidebar-box box-shadow-wrapper bg-color right-motion" id="sidebar">
+      
+      <div class="sidebar-body pisces" id="sidebar_body">
+        
+          
+            <div style="opacity: 1;">
+              <div class="toc-box right-motion">
+  <div class="toc-wrapper auto-number auto"
+    id="toc_wrapper">
+    <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+</div>
+
+<script>
+
+  let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1;
+  let active = 'active-show', activeClass = 'active-current';
+  let tocWrapper = document.querySelector('#toc_wrapper');
+  let tocContent = tocWrapper.children[0];
+  let autoNumber = tocWrapper && tocWrapper.classList.contains('auto-number');
+
+  function addTocNumber(elem, deep) {
+    if (!elem) {
+      return;
+    }
+    let prop = elem.__proto__;
+
+    if (prop === HTMLUListElement.prototype) {
+      for (let i = 0; i < elem.children.length; i++) {
+        addTocNumber(elem.children[i], deep + (i + 1) + '.');
+      }
+    } else if (prop === HTMLLIElement.prototype) {
+      // 保存li元素
+      if (elem.children[0] && elem.children[0].__proto__ === HTMLAnchorElement.prototype) {
+        lList.push(elem);
+      }
+      for (let i = 0; i < elem.children.length; i++) {
+        let cur = elem.children[i];
+        if (cur.__proto__ === HTMLAnchorElement.prototype) {
+          if (autoNumber) {
+            cur.text = deep + ' ' + cur.text;
+          }
+        } else if (cur.__proto__ === HTMLUListElement.prototype) {
+          addTocNumber(cur, deep);
+        }
+      }
+    }
+  }
+
+  function removeParentActiveClass() {
+    let parents = tocContent.querySelectorAll('.' + active)
+    parents.forEach(function (elem) {
+      elem.classList.remove(active);
+    });
+  }
+
+  function addActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.add(activeClass);
+    }
+  }
+
+  function removeActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.remove(activeClass);
+    }
+  }
+
+  function addActiveLiElemment(elem, parent) {
+    if (!elem || elem === parent) {
+      return;
+    } else {
+      if (elem.__proto__ === HTMLLIElement.prototype) {
+        elem.classList.add(active);
+      }
+      addActiveLiElemment(elem.parentElement, parent);
+    }
+  }
+
+  function showToc() {
+    if (tocWrapper) {
+      postBody = document.querySelector('#post_body');
+      for (let i = 0; i < postBody.children.length; i++) {
+        if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
+          hList.push(postBody.children[i]);
+        }
+      }
+      if (tocWrapper.classList.contains('compress')) {
+        tocContent.classList.add('closed');
+      } else if (tocWrapper.classList.contains('no_compress')) {
+        tocContent.classList.add('expanded');
+      } else {
+        if (hList.length > 10) {
+          active = 'active-hidden'
+          tocContent.classList.add('closed');
+        } else {
+          tocContent.classList.add('expanded');
+        }
+      }
+    }
+  }
+
+  (function () {
+    // 处理不是从#一级标题开始目录
+    if (tocContent.children.length === 1 && tocContent.children[0].__proto__ === HTMLLIElement.prototype) {
+      let con = tocContent.children[0].children[0];
+      tocContent.innerHTML = con.innerHTML;
+    }
+    let markdownItTOC = document.querySelector('.markdownIt-TOC');
+    let innerHeight = window.innerHeight;
+    markdownItTOC.style = `max-height: ${innerHeight - 80 > 0 ? innerHeight - 80 : innerHeight}px`
+    addTocNumber(tocContent, '');
+  })();
+
+  document.addEventListener('scroll', function (e) {
+    if (lList.length <= 0) {
+      return;
+    }
+    let scrollTop = document.scrollingElement.scrollTop + 10;
+    let dir;
+
+    if (lastTop - scrollTop > 0) {
+      dir = 'up';
+    } else {
+      dir = 'down';
+    }
+
+    lastTop = scrollTop;
+    if (scrollTop <= 0) {
+      if (lastIndex >= 0 && lastIndex < hList.length) {
+        lList[lastIndex].classList.remove(activeClass);
+      }
+      return;
+    }
+
+    let current = 0, hasFind = false;
+    for (let i = 0; i < hList.length; i++) {
+      if (hList[i].offsetTop > scrollTop) {
+        current = i;
+        hasFind = true;
+        break;
+      }
+    }
+    if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
+      current = hList.length - 1;
+    } else {
+      current--;
+    }
+    if (dir === 'down') {
+      if (current > lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex)
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    } else {
+      if (current < lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex);
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    }
+  });
+
+
+  window.addEventListener('load', function () {
+    showToc();
+    document.querySelector('#sidebar').style = 'display: block;';
+    tocWrapper.classList.add('toc-active');
+    setTimeout(function () {
+      if ("createEvent" in document) {
+        let evt = document.createEvent("HTMLEvents");
+        evt.initEvent("scroll", false, true);
+        document.dispatchEvent(evt);
+      }
+      else {
+        document.fireEvent("scroll");
+      }
+    }, 500)
+  })
+
+</script>
+            </div>
+          
+        
+      </div>
+    </div>
+  
 </div>
 <script>
   const SIDEBAR_TITLE_ACTIVE = 'sidebar-title-active';
@@ -311,13 +513,15 @@
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>986<span class="pc-show language" data-lan="words">字数</span></span>
+      <span>1007<span class="pc-show language" data-lan="words">字数</span></span>
     </span>
     
   </div>
 </section>
             <div class="post-body next-md-body" id="post_body">
-              <p>克拉斯提在很多方面都拥有着才能， 但实际上，这似乎是他的一种无意义的发达的「模仿」能力。虽然说是模仿，但也并不是一定要有明确的模仿对象。可以是他在书中读到的，也可以是电影里看到的角色或者行为模式，他只要按照那个感觉去再现的话，无论是学业上的，还是文化上的或者是工作上的事务，大致上就能顺利的达成。克拉斯提拥有的似乎就是这样的天赋。<br>
+              <p>以下内容包含小说11卷《克拉斯提的仙君行》的剧透。</p>
+<h3 id=""></h3>
+<p>克拉斯提在很多方面都拥有着才能， 但实际上，这似乎是他的一种无意义的发达的「模仿」能力。虽然说是模仿，但也并不是一定要有明确的模仿对象。可以是他在书中读到的，也可以是电影里看到的角色或者行为模式，他只要按照那个感觉去再现的话，无论是学业上的，还是文化上的或者是工作上的事务，大致上就能顺利的达成。克拉斯提拥有的似乎就是这样的天赋。<br>
 当然，他平时无规则得大量收集的知识和过往的经验是使他能这么做的基础。但是即使是这样，他的这个才能也是不正常的。<br>
 “说起来祖父工作的方法好像是这样的，说起来参考书上推荐的思考方法好像是那样的，学着做一下吧。”因为这种程度就可以做出成果，所以克拉斯提自己对于这样的成功持很无所谓的态度。<br>
 从学生时期就和克拉斯提成为朋友的高山三佐早早地注意到了这件事，她曾经多次提醒克拉斯提应该对于这样的处事方式多加注意。不过，因为克拉斯提他自己并不觉得这样的才能和行为有问题，所以高山三佐的忠告的效果是有限的。<br>
@@ -883,11 +1087,44 @@
     <div class="result" id="result">
       
       <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://eriarea.github.io/post/krusty/"" data-c="
+          &lt;p&gt;以下内容包含小说11卷《克拉斯提的仙君行》剧透。&lt;/p&gt;
+&lt;h3 id=&#34;克拉斯提&#34;&gt;克拉斯提&lt;/h3&gt;
+&lt;p&gt;担任&amp;lt;D. D. D&amp;gt;公会长的青年&amp;lt;守护战士&amp;gt;。后为参与&amp;lt;圆桌会议&amp;gt;的11位公会长之一，同时对外担任&amp;lt;圆桌会议&amp;gt;的议长。&lt;br&gt;
+他是一个身高190厘米，戴着眼镜的肤色白皙相貌出色的青年。虽然已经被他的贵族气质所中和，但是他肌肉发达的身体充分展示了他作为战士的素质。他通常都以沉稳的举止和学者一般的外表为外人所知，但是他也有着在战斗中会情绪高涨欣喜若狂的另一面。他的外号也正是他的副职业「狂战士」。&lt;br&gt;
+他在战斗中身着深蓝色的重量级金属铠甲&amp;lt;英灵之铠&amp;gt;挥舞着需要双手持的双头月牙斧&amp;lt;鮮血の魔人斧&amp;gt;。理论上来说，鉴于&amp;lt;守护战士&amp;gt;的作用是成为敌人的唯一攻击目标，所以应该装备盾来提高防御能力，但是克拉斯提的处理方式是一边战斗一边使用能够吸收攻击对象的HP的&amp;lt;鲜血之魔人斧&amp;gt;和拥有着同样效果的技能&lt;Scarlet thrust&gt;来恢复受到的伤害。&lt;br&gt;
+他超然的性格让人捉摸不透，说话也很圆滑，就算面对&amp;lt;大地人&amp;gt;的贵族也游刃有余。他有天生的领袖气质， 能够管理起大型组织，同时他也具有能够有远见的设计组织架构的帝王学的才能，因此他周围从来不乏仰慕他的女性。&lt;br&gt;
+他对于交谊舞，骑马，女性用香水，礼物，厨艺等方面也有所研究，因此也有人评价他为没有缺陷的完美超人。但是与克拉斯提最为熟悉的亲信高山三佐则是在清楚这些的基础上，评价他为「喜欢恶作剧的小鬼」「让人难以善后」。&lt;br&gt;
+克拉斯提在和蕾妮希雅相遇以后，可能是因为找到了可以捉弄的对象而安定了下来。&lt;br&gt;
+在奥羽的山区中，他被卷入因为高山三佐的镰刀&amp;lt;灾厄之心&amp;gt;而引起的意外中，结果他经由月球被带到了欧雷德大陆&amp;lt;中国服务器&amp;gt;，现在正为了解除他自身所中的重度诅咒而进行着冒险。&lt;br&gt;
+克拉斯提拥有的口传为&amp;lt;征空之瞳&amp;gt;和&amp;lt;追忆的断裁&amp;gt;。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;鴻池晴秋-こうのいけ-はるあき&#34;&gt;鴻池晴秋　こうのいけ　はるあき&lt;/h3&gt;
+&lt;p&gt;在商界，特别是在关西地区具有强大影响力的鸿池财阀的当家与出身祇园艺伎的妾所生下的男子。「晴秋」这个名字是由他的外祖母取的，有时候他也会被唤为せいしゅう（seishu）【译者:此为晴秋的音读。通常晴秋的读法——はるあき(haruaki)为训读】&lt;br&gt;
+虽然亲族接受了晴秋的存在，但是对他非常的疏远。鸿池晴秋的幼年和少年时期都是和母亲两个人度过的。之后，他在祖父的帮助下从名门男子高中毕业后前往美国进入耶鲁大学就读。&lt;br&gt;
+鸿池晴秋在大学的生活是享乐且颓废的，这与他优等生的外表并不相符。&lt;br&gt;
+因为他学习成绩好，能力强，性格也不错，招待他去参加派对的友人很多，但是对于他本人来说，他更喜欢一个人在无人的俱乐部的沙发上独自度过。&lt;br&gt;
+毕业回国之后，他开始以祖父的司机的名头，过着懒散的生活。祖父和同父异母的义妹（他父亲的正妻的女儿）都对他很不错，特别是他的祖父曾经打算让晴秋成为家族的干部之一，但是被亲族阻止了而没有能够实现。&lt;br&gt;
+鸿池晴秋一个人住在公寓里。家务事他基本都会做，但是义妹经常会以打扫为名进来他家。他在进行着假装自己养了猫的游戏，这只想象中的猫的名字是Nobody（即“没有”）。这是被他用来当做从派对中溜走或者是中断不想参加的约会的借口。&lt;br&gt;
+开始玩「幻境神话」的理由，一半也是为了扮演成没用的人的样子以拒绝不想去的相亲，另一半则是因为被游戏中遇到的投缘的伙伴们所拯救。&lt;br&gt;
+总而言之，他是个很有能力，但是才能被扭曲的怠惰的人。&lt;/p&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li&gt;原词条地址 &lt;a href=&#34;https://lhrpg.com/lhz/i?id=1095&#34;&gt;クラスティ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;原词条地址 &lt;a href=&#34;https://lhrpg.com/lhz/i?id=1289&#34;&gt;鴻池晴秋&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;散装日文塑料翻译且语序词句选择采取我个人的理解来翻译，所以存在不准确的情况&lt;/li&gt;
+&lt;li&gt;个人兴趣自翻译，具体请参考官方设定，请勿转出&lt;/li&gt;
+&lt;/ol&gt;
+">【LHZDB】【翻译】克拉斯提/鴻池晴秋 词条翻译（含11卷剧透）</a>
+      </div>
+      
+      <div class="item">
         <a class="result-title" style="opacity: 0;" href="https://eriarea.github.io/post/mu-lu/"" data-c="
           &lt;ol&gt;
 &lt;li&gt;「ログ・ホライズン データベース」（Log Horizon Database）词条翻译
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://eriarea.github.io/post/kelasitideroleplay/&#34;&gt;克拉斯提的Role Play习惯(クラスティのロールプレイ癖)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://eriarea.github.io/post/krusty&#34;&gt;克拉斯提/鴻池晴秋&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
@@ -896,7 +1133,9 @@
       
       <div class="item">
         <a class="result-title" style="opacity: 0;" href="https://eriarea.github.io/post/kelasitideroleplay/"" data-c="
-          &lt;p&gt;克拉斯提在很多方面都拥有着才能， 但实际上，这似乎是他的一种无意义的发达的「模仿」能力。虽然说是模仿，但也并不是一定要有明确的模仿对象。可以是他在书中读到的，也可以是电影里看到的角色或者行为模式，他只要按照那个感觉去再现的话，无论是学业上的，还是文化上的或者是工作上的事务，大致上就能顺利的达成。克拉斯提拥有的似乎就是这样的天赋。&lt;br&gt;
+          &lt;p&gt;以下内容包含小说11卷《克拉斯提的仙君行》的剧透。&lt;/p&gt;
+&lt;h3 id=&#34;&#34;&gt;&lt;/h3&gt;
+&lt;p&gt;克拉斯提在很多方面都拥有着才能， 但实际上，这似乎是他的一种无意义的发达的「模仿」能力。虽然说是模仿，但也并不是一定要有明确的模仿对象。可以是他在书中读到的，也可以是电影里看到的角色或者行为模式，他只要按照那个感觉去再现的话，无论是学业上的，还是文化上的或者是工作上的事务，大致上就能顺利的达成。克拉斯提拥有的似乎就是这样的天赋。&lt;br&gt;
 当然，他平时无规则得大量收集的知识和过往的经验是使他能这么做的基础。但是即使是这样，他的这个才能也是不正常的。&lt;br&gt;
 “说起来祖父工作的方法好像是这样的，说起来参考书上推荐的思考方法好像是那样的，学着做一下吧。”因为这种程度就可以做出成果，所以克拉斯提自己对于这样的成功持很无所谓的态度。&lt;br&gt;
 从学生时期就和克拉斯提成为朋友的高山三佐早早地注意到了这件事，她曾经多次提醒克拉斯提应该对于这样的处事方式多加注意。不过，因为克拉斯提他自己并不觉得这样的才能和行为有问题，所以高山三佐的忠告的效果是有限的。&lt;br&gt;
